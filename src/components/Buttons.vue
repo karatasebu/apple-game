@@ -32,7 +32,7 @@ const afterShake = () => {
   if (store.state.basket.length === 30) store.state.isModalOpened = true;
   store.state.treeEl.classList.remove("shaking");
   for (let i = 0; i < Math.ceil(Math.random() * 5) + 1; i++) {
-    const removed = store.state.apples.splice(i, 1);
+    const removed = store.state.apples.splice(0, 1);
     store.state.basket.push(...removed);
   }
 };
