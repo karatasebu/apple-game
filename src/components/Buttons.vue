@@ -38,7 +38,6 @@ const afterShake = () => {
 };
 
 const addToBasket = (el) => {
-  store.state.basket.sort((a, b) => a.dropTime - b.dropTime);
   store.state.basketEl.appendChild(el.value);
   el.value.classList.remove("dropped");
   el.value.style.left = "unset";
@@ -68,10 +67,10 @@ const shake = () => {
       if (store.state.basketEl.querySelector(`#${el.value.id}`) === null) {
         setTimeout(() => {
           el.value.classList.add("dropped");
-        }, el.dropTime * 1000);
+        }, el.dropTime);
         setTimeout(() => {
           addToBasket(el);
-        }, 2500 + el.dropTime * 1000);
+        }, 2500 + el.dropTime);
       }
     });
   });
@@ -93,8 +92,5 @@ const refresh = () => {
 }
 .btn.-shake {
   margin-right: 15px;
-}
-.not-allowed {
-  cursor: not-allowed;
 }
 </style>

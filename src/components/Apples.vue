@@ -21,7 +21,7 @@ const appleRefs = [];
 const applesEl = ref(null);
 
 const setRefs = (el) => {
-  appleRefs.push({ value: el, dropTime: Math.random() * 3 });
+  appleRefs.push({ value: el, dropTime: Math.random() * 3000 });
 };
 
 onMounted(() => {
