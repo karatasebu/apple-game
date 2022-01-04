@@ -20,7 +20,7 @@ const createModal = (isModalOpened, basket, apples) => {
 
 describe("Modal", () => {
   it("modal shouldn't exist when first render", () => {
-    createModal(false, new Array(30), []);
+    createModal(false, [], new Array(30));
     cy.get(".modal").should("not.exist");
   });
   it("when all apples on tree and try to refresh, modal should exist", () => {
