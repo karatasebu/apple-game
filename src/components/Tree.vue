@@ -1,21 +1,12 @@
 <template>
-  <div ref="treeEl" class="tree">
+  <div id="tree" class="tree">
     <Apples />
     <img class="tree-img" src="../assets/svg/tree.svg" alt="tree" />
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import { useStore } from "vuex";
 import Apples from "./Apples";
-
-const store = useStore();
-const treeEl = ref(null);
-
-onMounted(() => {
-  store.state.treeEl = treeEl.value;
-});
 </script>
 
 <style>

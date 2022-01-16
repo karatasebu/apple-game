@@ -1,5 +1,5 @@
 <template>
-  <div ref="basketEl" class="basket">
+  <div id="basket" class="basket">
     <h2 v-if="basketNum > 0" class="basket-text">
       {{ basketNum > 1 ? `${basketNum} Apples` : `${basketNum} Apple` }}
     </h2>
@@ -8,15 +8,10 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-const basketEl = ref(null);
-
-onMounted(() => {
-  store.state.basketEl = basketEl.value;
-});
 
 const basketNum = computed(() => {
   return store.state.counter;

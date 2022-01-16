@@ -1,5 +1,5 @@
 <template>
-  <div ref="applesEl" class="apples">
+  <div id="apples" class="apples">
     <img
       v-for="index in 30"
       :id="`apple${index}`"
@@ -13,12 +13,11 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
 const appleRefs = [];
-const applesEl = ref(null);
 
 const setRefs = (el) => {
   appleRefs.push({ value: el, dropTime: Math.random() * 3000 });
@@ -30,7 +29,6 @@ onMounted(() => {
     el.value.style.top = `${Math.random() * 170}px`;
   });
   store.state.apples = appleRefs;
-  store.state.applesEl = applesEl.value;
 });
 </script>
 

@@ -4,9 +4,6 @@ const store = createStore({
   state: {
     apples: [],
     basket: [],
-    treeEl: null,
-    basketEl: null,
-    applesEl: null,
     isModalOpened: false,
     isBtnsDisabled: false,
     counter: 0,
@@ -19,12 +16,12 @@ const store = createStore({
         state.counter = 0;
         state.apples = state.apples.concat(state.basket);
         state.basket.forEach((el) => {
-          state.applesEl.appendChild(el.value);
+          document.querySelector("#apples").appendChild(el.value);
         });
         state.basket = [];
         state.apples.forEach((el) => {
-          el.value.style.left = `${Math.floor(Math.random() * 380)}px`;
-          el.value.style.top = `${Math.floor(Math.random() * 170)}px`;
+          el.value.style.left = `${Math.random() * 380}px`;
+          el.value.style.top = `${Math.random() * 170}px`;
         });
       }
     },

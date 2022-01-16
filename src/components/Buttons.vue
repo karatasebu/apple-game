@@ -30,7 +30,7 @@ watch(
 
 const afterShake = () => {
   if (store.state.basket.length === 30) store.state.isModalOpened = true;
-  store.state.treeEl.classList.remove("shaking");
+  document.querySelector("#tree").classList.remove("shaking");
   for (let i = 0; i < Math.ceil(Math.random() * 5) + 1; i++) {
     const removed = store.state.apples.splice(0, 1);
     store.state.basket.push(...removed);
@@ -38,7 +38,7 @@ const afterShake = () => {
 };
 
 const addToBasket = (el) => {
-  store.state.basketEl.appendChild(el.value);
+  document.querySelector("#basket").appendChild(el.value);
   el.value.classList.remove("dropped");
   el.value.style.left = "unset";
   if (store.state.counter < 14) {
@@ -55,7 +55,7 @@ const addToBasket = (el) => {
 };
 
 const shake = () => {
-  store.state.treeEl.classList.add("shaking");
+  document.querySelector("#tree").classList.add("shaking");
   store.state.isBtnsDisabled = true;
   new Promise((resolve) => {
     setTimeout(() => {
@@ -64,7 +64,7 @@ const shake = () => {
     }, 3000);
   }).then(() => {
     store.state.basket.forEach((el) => {
-      if (store.state.basketEl.querySelector(`#${el.value.id}`) === null) {
+      if (document.querySelector(`#basket #${el.value.id}`) === null) {
         setTimeout(() => {
           el.value.classList.add("dropped");
         }, el.dropTime);
